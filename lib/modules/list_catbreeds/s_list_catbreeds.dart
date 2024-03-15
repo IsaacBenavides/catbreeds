@@ -6,6 +6,7 @@ import 'package:catbreeds/modules/list_catbreeds/widgets/empty_list_catbreeds.da
 import 'package:catbreeds/modules/list_catbreeds/widgets/list_catbreeds.dart';
 import 'package:catbreeds/modules/list_catbreeds/widgets/loading_catbreeds.dart';
 import 'package:catbreeds/ui/widgets/app_bar.dart';
+import 'package:catbreeds/ui/widgets/battery_level.dart';
 import 'package:catbreeds/ui/widgets/scaffold_with_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -46,6 +47,9 @@ class _ListCatBreedsScreenState extends State<ListCatBreedsScreen> {
     return ScaffoldWithSafeArea(
       appBar: CustomAppBar(
         text: "CatBreeds",
+        actions: const [
+          BatteryLevelWidget(),
+        ],
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,

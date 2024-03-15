@@ -16,6 +16,7 @@ class CustomAppBar extends AppBar {
     super.key,
     super.backgroundColor = Colors.transparent,
     super.scrolledUnderElevation = 0,
+    super.actions,
     required this.text,
     this.textColor,
   }) : title = CustomText(

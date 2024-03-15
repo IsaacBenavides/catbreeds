@@ -1,18 +1,37 @@
+import 'package:catbreeds/g_controllers/battery_level.dart';
 import 'package:catbreeds/ui/routes/names.dart';
 import 'package:catbreeds/ui/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
   runApp(
-    const CatBreedsApp(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => BatteryLevelController()),
+      ],
+      child: const CatBreedsApp(),
+    ),
   );
 }
 
-class CatBreedsApp extends StatelessWidget {
+class CatBreedsApp extends StatefulWidget {
   const CatBreedsApp({super.key});
+
+  @override
+  State<CatBreedsApp> createState() => _CatBreedsAppState();
+}
+
+class _CatBreedsAppState extends State<CatBreedsApp> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<BatteryLevelController>().getBatteryLevel();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
