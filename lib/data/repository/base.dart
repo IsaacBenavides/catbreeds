@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,21 +13,18 @@ abstract class Api {
     return headers;
   }
 
-  Future<http.Response> get(String path, {bool? useFullUrl}) {
+  Future<http.Response> get(
+    String path, {
+    bool? useFullUrl,
+    Map<String, String>? queryParams,
+  }) {
     String url = useFullUrl ?? true ? "$apiUrl$path" : path;
-    return http.get(Uri.parse(url), headers: headers).timeout(
+    Uri parsedUrl = Uri.parse(url).replace(queryParameters: queryParams);
+    return http.get(parsedUrl, headers: headers).timeout(
       const Duration(seconds: 10),
       onTimeout: () {
         return http.Response('', 408);
       },
-    );
-  }
-
-  Future<http.Response> post(String path, Map<String, dynamic> body) {
-    return http.post(
-      Uri.parse("$apiUrl$path"),
-      body: jsonEncode(body),
-      headers: headers,
     );
   }
 }

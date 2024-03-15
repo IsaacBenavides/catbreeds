@@ -36,7 +36,7 @@ class SkeletonCatBreed extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
+        padding: EdgeInsets.all(20.sp),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
