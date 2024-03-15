@@ -33,13 +33,15 @@ class CatBreedDetailsScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView(
-              padding: EdgeInsets.all(20.sp),
-              children: [
-                CustomText(text: catBreed.description ?? ""),
-                gapH20,
-                CharacteristicList(catBreed: catBreed)
-              ],
+            child: Scrollbar(
+              child: ListView(
+                padding: EdgeInsets.all(20.sp),
+                children: [
+                  CustomText(text: catBreed.description ?? ""),
+                  gapH20,
+                  CharacteristicList(catBreed: catBreed)
+                ],
+              ),
             ),
           )
         ],
