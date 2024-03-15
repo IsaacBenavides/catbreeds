@@ -6,7 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-  runApp(const CatBreedsApp());
+  runApp(
+    const CatBreedsApp(),
+  );
 }
 
 class CatBreedsApp extends StatelessWidget {

@@ -18,4 +18,8 @@ extension CatBreedContext on BuildContext {
       arguments: arguments,
     );
   }
+
+  Object? getArguments() {
+    return ModalRoute.of(this)!.settings.arguments;
+  }
 }

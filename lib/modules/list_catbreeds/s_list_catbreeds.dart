@@ -14,8 +14,8 @@ class ListCatBreedsScreen extends StatefulWidget {
   const ListCatBreedsScreen._();
 
   static init() {
-    return ChangeNotifierProvider.value(
-      value: ListCatBreedsController(
+    return ChangeNotifierProvider(
+      create: (_) => ListCatBreedsController(
         catBreedsUseCase: CatBreedsUseCase(
           catBreedsRepository: CatBreedsRepository(
             baseRepository: BaseRepository(),

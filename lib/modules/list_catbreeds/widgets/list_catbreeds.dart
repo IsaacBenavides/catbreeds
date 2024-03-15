@@ -16,7 +16,7 @@ class ListCatBreeds extends StatelessWidget {
     return CustomRefreshIndicator(
       onRefresh: () async => controller.getCatBreeds(),
       child: ListView.separated(
-        padding: EdgeInsets.symmetric(horizontal: 30.sp),
+        padding: EdgeInsets.symmetric(horizontal: 20.sp),
         physics: const AlwaysScrollableScrollPhysics(
           parent: BouncingScrollPhysics(),
         ),

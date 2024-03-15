@@ -7,6 +7,7 @@ class Sizes {
   static final p4 = 4.0.sp;
   static final p8 = 8.0.sp;
   static final p12 = 12.0.sp;
+  static final p14 = 14.0.sp;
   static final p16 = 16.0.sp;
   static final p20 = 20.0.sp;
   static final p24 = 24.0.sp;
@@ -24,6 +25,7 @@ class Sizes {
 final gapW4 = SizedBox(width: Sizes.p4);
 final gapW8 = SizedBox(width: Sizes.p8);
 final gapW12 = SizedBox(width: Sizes.p12);
+final gapW14 = SizedBox(width: Sizes.p14);
 final gapW16 = SizedBox(width: Sizes.p16);
 final gapW20 = SizedBox(width: Sizes.p20);
 final gapW24 = SizedBox(width: Sizes.p24);
@@ -37,6 +39,7 @@ final gapH2 = SizedBox(height: Sizes.p2);
 final gapH4 = SizedBox(height: Sizes.p4);
 final gapH8 = SizedBox(height: Sizes.p8);
 final gapH12 = SizedBox(height: Sizes.p12);
+final gapH14 = SizedBox(height: Sizes.p14);
 final gapH16 = SizedBox(height: Sizes.p16);
 final gapH20 = SizedBox(height: Sizes.p20);
 final gapH24 = SizedBox(height: Sizes.p24);

@@ -1,3 +1,4 @@
+import 'package:catbreeds/modules/detail_catbreeds/s_details.dart';
 import 'package:catbreeds/modules/initial/s_initial.dart';
 import 'package:catbreeds/modules/list_catbreeds/s_list_catbreeds.dart';
 import 'package:catbreeds/ui/routes/names.dart';
@@ -14,6 +15,12 @@ class CustomRoutes {
       case Routes.listcatbreeds:
         return MaterialPageRoute(
           builder: (context) => ListCatBreedsScreen.init(),
+          settings: settings,
+        );
+
+      case Routes.catbreedDetails:
+        return MaterialPageRoute(
+          builder: (context) => const CatBreedDetailsScreen(),
           settings: settings,
         );
       default:
