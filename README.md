@@ -20,7 +20,7 @@ git clone https://github.com/IsaacBenavides/catbreeds.git
 1. Go to Application Folder
 
 ```bash
-cd catbreed
+cd catbreeds
 ```
 
 2. List all available devices
