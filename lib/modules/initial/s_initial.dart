@@ -40,8 +40,6 @@ class _InitialScreenState extends State<InitialScreen> {
             fontSize: 30.sp,
             fontWeight: FontWeight.w600,
           ),
-          gapH64,
-          const CircularProgressIndicator()
         ],
       ),
     );

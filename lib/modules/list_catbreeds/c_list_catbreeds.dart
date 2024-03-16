@@ -14,6 +14,7 @@ class ListCatBreedsController extends ChangeNotifier {
 
   bool isLoading = false;
   List<CatBreed> catBreeds = [];
+  List<CatBreed> catBreedsMemory = [];
 
   // GETTERS
 
@@ -35,12 +36,36 @@ class ListCatBreedsController extends ChangeNotifier {
   getCatBreeds() async {
     try {
       _toggleIsLoading();
-      catBreeds = await catBreedsUseCase.call();
+      final catBreeds = await catBreedsUseCase.call();
+      this.catBreeds = catBreeds;
+      catBreedsMemory = catBreeds;
       notifyListeners();
     } catch (e) {
       log(e.toString());
     } finally {
       _toggleIsLoading();
     }
+  }
+
+  filterCatBreed(String catBreed) async {
+    catBreeds = catBreedsMemory;
+    List<CatBreed> filteredCatBreeds = catBreeds
+        .where(
+          (element) => element.name!.toLowerCase().contains(catBreed),
+        )
+        .toList();
+    _toggleIsLoading();
+    await Future.delayed(const Duration(milliseconds: 500));
+    _toggleIsLoading();
+    catBreeds = filteredCatBreeds;
+    notifyListeners();
+  }
+
+  void setAllCatBreeds() async {
+    _toggleIsLoading();
+    await Future.delayed(const Duration(milliseconds: 500));
+    _toggleIsLoading();
+    catBreeds = catBreedsMemory;
+    notifyListeners();
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:catbreeds/data/repository/base.dart';
 import 'package:catbreeds/data/repository/cat_breeds.dart';
 import 'package:catbreeds/data/uses_cases/cat_breeds.dart';
@@ -5,9 +7,11 @@ import 'package:catbreeds/modules/list_catbreeds/c_list_catbreeds.dart';
 import 'package:catbreeds/modules/list_catbreeds/widgets/empty_list_catbreeds.dart';
 import 'package:catbreeds/modules/list_catbreeds/widgets/list_catbreeds.dart';
 import 'package:catbreeds/modules/list_catbreeds/widgets/loading_catbreeds.dart';
+import 'package:catbreeds/modules/list_catbreeds/widgets/search_input.dart';
 import 'package:catbreeds/ui/widgets/app_bar.dart';
 import 'package:catbreeds/ui/widgets/battery_level.dart';
 import 'package:catbreeds/ui/widgets/scaffold_with_safe_area.dart';
+import 'package:catbreeds/utils/size.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,6 +44,8 @@ class _ListCatBreedsScreenState extends State<ListCatBreedsScreen> {
         .addPostFrameCallback((timeStamp) => controller.getCatBreeds());
   }
 
+  final TextEditingController textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final ListCatBreedsController controller = context.watch();
@@ -54,6 +60,17 @@ class _ListCatBreedsScreenState extends State<ListCatBreedsScreen> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
+          SearchInput(
+            controller: textEditingController,
+            onSubmit: () {
+              controller.filterCatBreed(textEditingController.text);
+            },
+            onIconAction: () {
+              textEditingController.clear();
+              controller.setAllCatBreeds();
+            },
+          ),
+          gapH12,
           Expanded(
             child: Builder(
               builder: (context) {

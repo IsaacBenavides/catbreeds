@@ -26,11 +26,14 @@ class ScaffoldWithSafeArea extends StatelessWidget {
       body: SafeArea(
         top: top ?? true,
         bottom: bottom ?? true,
-        child: Container(
-          width: context.appSize.width,
-          height: context.appSize.height,
-          margin: padding ?? EdgeInsets.symmetric(vertical: 10.sp),
-          child: body,
+        child: GestureDetector(
+          onTap: () => context.unfocus(),
+          child: Container(
+            width: context.appSize.width,
+            height: context.appSize.height,
+            margin: padding ?? EdgeInsets.symmetric(vertical: 10.sp),
+            child: body,
+          ),
         ),
       ),
     );

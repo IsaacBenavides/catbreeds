@@ -22,4 +22,8 @@ extension CatBreedContext on BuildContext {
   Object? getArguments() {
     return ModalRoute.of(this)!.settings.arguments;
   }
+
+  void unfocus() {
+    FocusScope.of(this).unfocus();
+  }
 }
