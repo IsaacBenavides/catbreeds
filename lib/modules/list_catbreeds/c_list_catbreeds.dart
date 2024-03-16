@@ -47,6 +47,10 @@ class ListCatBreedsController extends ChangeNotifier {
     }
   }
 
+  bool equal() {
+    return catBreeds == catBreedsMemory;
+  }
+
   filterCatBreed(String catBreed) async {
     catBreeds = catBreedsMemory;
     List<CatBreed> filteredCatBreeds = catBreeds

@@ -66,8 +66,12 @@ class _ListCatBreedsScreenState extends State<ListCatBreedsScreen> {
               controller.filterCatBreed(textEditingController.text);
             },
             onIconAction: () {
-              textEditingController.clear();
-              controller.setAllCatBreeds();
+              if (controller.equal()) {
+                controller.filterCatBreed(textEditingController.text);
+              } else {
+                textEditingController.clear();
+                controller.setAllCatBreeds();
+              }
             },
           ),
           gapH12,
