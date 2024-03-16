@@ -11,6 +11,7 @@ import 'package:catbreeds/modules/list_catbreeds/widgets/search_input.dart';
 import 'package:catbreeds/ui/widgets/app_bar.dart';
 import 'package:catbreeds/ui/widgets/battery_level.dart';
 import 'package:catbreeds/ui/widgets/scaffold_with_safe_area.dart';
+import 'package:catbreeds/utils/extensions.dart';
 import 'package:catbreeds/utils/size.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -40,6 +41,7 @@ class _ListCatBreedsScreenState extends State<ListCatBreedsScreen> {
   void initState() {
     super.initState();
     final ListCatBreedsController controller = context.read();
+    context.unfocus();
     WidgetsBinding.instance
         .addPostFrameCallback((timeStamp) => controller.getCatBreeds());
   }
