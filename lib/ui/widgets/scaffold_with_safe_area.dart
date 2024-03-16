@@ -20,14 +20,14 @@ class ScaffoldWithSafeArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: extendBodyBehindAppBar ?? false,
-      appBar: appBar,
-      body: SafeArea(
-        top: top ?? true,
-        bottom: bottom ?? true,
-        child: GestureDetector(
-          onTap: () => context.unfocus(),
+    return GestureDetector(
+      onTap: () => context.unfocus(),
+      child: Scaffold(
+        extendBodyBehindAppBar: extendBodyBehindAppBar ?? false,
+        appBar: appBar,
+        body: SafeArea(
+          top: top ?? true,
+          bottom: bottom ?? true,
           child: Container(
             width: context.appSize.width,
             height: context.appSize.height,
