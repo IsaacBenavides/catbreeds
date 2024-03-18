@@ -28,7 +28,7 @@ class CatBreedDetailsScreen extends StatelessWidget {
             height: context.appSize.height * .45,
             width: double.infinity,
             child: Hero(
-              tag: catBreed.referenceImageId!,
+              tag: catBreed.referenceImageId ?? "",
               child: CustomImageNetwork(image: catImage),
             ),
           ),
