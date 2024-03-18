@@ -55,7 +55,8 @@ class ListCatBreedsController extends ChangeNotifier {
     catBreeds = catBreedsMemory;
     List<CatBreed> filteredCatBreeds = catBreeds
         .where(
-          (element) => element.name!.toLowerCase().contains(catBreed),
+          (element) =>
+              element.name!.toLowerCase().contains(catBreed.toLowerCase()),
         )
         .toList();
     _toggleIsLoading();
