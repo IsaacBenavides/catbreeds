@@ -41,9 +41,10 @@ class _ListCatBreedsScreenState extends State<ListCatBreedsScreen> {
   void initState() {
     super.initState();
     final ListCatBreedsController controller = context.read();
-    context.unfocus();
-    WidgetsBinding.instance
-        .addPostFrameCallback((timeStamp) => controller.getCatBreeds());
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.unfocus();
+      controller.getCatBreeds();
+    });
   }
 
   final TextEditingController textEditingController = TextEditingController();
