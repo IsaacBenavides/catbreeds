@@ -5,7 +5,7 @@
 
 ## 🛠️ REQUIREMENTS
 
-- [Flutter (>= 3.10.6)](https://flutter.dev/)
+- [Flutter (>= 3.19.3)](https://flutter.dev/)
 
 ## 🚀 Getting Started
 
